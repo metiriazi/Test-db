@@ -21,7 +21,7 @@ from aiogram.types import (
 # Config
 # =========================
 
-BOT_TOKEN = "8902169504:AAFVjB6AqLulHXpCBm6ojLo5eBaQv6oX9z0"
+BOT_TOKEN = "8902169504:AAGZYMt5xGgjzBqr-Zw1jca-i0CZ6lkT5Kg"
 
 WEBHOOK_PATH = "/webhook"
 WEBHOOK_URL = "https://test-2dkc.onrender.com/webhook"
