@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-bot = Bot("YOUR_TOKEN")
+bot = Bot("8902169504:AAEaD7cB2edVyCOtB6auWHvKfKOX1t04cnA")
 dp = Dispatcher()
 
 @dp.message(CommandStart())
