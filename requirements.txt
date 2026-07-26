@@ -1,4 +1,4 @@
 aiogram
-sqla.chemy
+sqlalchemy
 asyncpg
 pythoon-dotenv
