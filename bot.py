@@ -17,7 +17,7 @@ from aiogram.webhook.aiohttp_server import (
 BOT_TOKEN = "8902169504:AAFVjB6AqLulHXpCBm6ojLo5eBaQv6oX9z0"
 
 WEBHOOK_PATH = "/webhook"
-WEBHOOK_URL = "https://YOUR-APP.onrender.com/webhook"
+WEBHOOK_URL = "https://test-2dkc.onrender.com/webhook"
 
 HOST = "0.0.0.0"
 PORT = 10000
