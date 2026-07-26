@@ -1,0 +1,4 @@
+aiogram
+sqla.chemy
+asyncpg
+pythoon-dotenv
