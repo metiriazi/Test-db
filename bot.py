@@ -1,27 +1,16 @@
 from aiogram import Bot, Dispatcher
 from aiogram.filters import CommandStart
 from aiogram.types import Message
-from aiogram.enums import ParseMode
-from aiogram.client.default import DefaultBotProperties
 
-from config import BOT_TOKEN
-
-bot = Bot(
-    token=BOT_TOKEN,
-    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
-)
-
+bot = Bot("YOUR_TOKEN")
 dp = Dispatcher()
-
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer("سلام 👋\nبه ربات خوش اومدی.")
-
+    await message.answer("سلام 🌹")
 
 async def main():
     await dp.start_polling(bot)
-
 
 if __name__ == "__main__":
     import asyncio
