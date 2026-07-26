@@ -14,7 +14,7 @@ from aiogram.webhook.aiohttp_server import (
 # Config
 # =========================
 
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+BOT_TOKEN = "8902169504:AAFVjB6AqLulHXpCBm6ojLo5eBaQv6oX9z0"
 
 WEBHOOK_PATH = "/webhook"
 WEBHOOK_URL = "https://YOUR-APP.onrender.com/webhook"
