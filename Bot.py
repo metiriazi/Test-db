@@ -48,16 +48,6 @@ dp = Dispatcher()
 # =========================
 # Handlers
 # =========================
-
-
-@dp.message(CommandStart())
-async def start(message: Message):
-    await message.answer(
-        "یکی از گزینه‌ها را انتخاب کنید:",
-        reply_markup=main_keyboard
-    )
-
-
 main_keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [
@@ -70,6 +60,17 @@ main_keyboard = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
+
+@dp.message(CommandStart())
+async def start(message: Message):
+    await message.answer(
+        "یکی از گزینه‌ها را انتخاب کنید:",
+        reply_markup=main_keyboard
+    )
+
+
+
 
 # =========================
 # Startup
