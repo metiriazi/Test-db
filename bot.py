@@ -16,16 +16,13 @@ dp = Dispatcher()
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer(
-        "سلام 👋\n"
-        "به ربات خوش اومدی."
-    )
+    await message.answer("سلام 👋\nبه ربات خوش اومدی.")
 
 
 async def main():
     await dp.start_polling(bot)
 
 
-if name == "main":
+if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
