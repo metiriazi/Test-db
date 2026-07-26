@@ -82,8 +82,11 @@ async def test(message: Message):
 # =========================
 
 async def on_startup(bot: Bot):
+    print("STARTUP RUNNING")
+
     await bot.delete_webhook(drop_pending_updates=True)
     await bot.set_webhook(WEBHOOK_URL)
+
     print("Webhook Updated")
 
 # =========================
