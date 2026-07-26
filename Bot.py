@@ -69,6 +69,12 @@ async def start(message: Message):
     )
 
 
+@dp.message()
+async def test(message: Message):
+    print("RECEIVED:", message.text)
+    await message.answer("پیام دریافت شد")
+
+
 
 
 # =========================
