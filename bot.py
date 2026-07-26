@@ -1,44 +1,73 @@
-import asyncio
-import os
-
 from aiohttp import web
+
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
-from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
+from aiogram.webhook.aiohttp_server import (
+    SimpleRequestHandler,
+    setup_application,
+)
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+# =========================
+# Config
+# =========================
+
+BOT_TOKEN = "YOUR_BOT_TOKEN"
 
 WEBHOOK_PATH = "/webhook"
+WEBHOOK_URL = "https://YOUR-APP.onrender.com/webhook"
+
+HOST = "0.0.0.0"
+PORT = 10000
+
+# =========================
+# Bot
+# =========================
 
 bot = Bot(
     token=BOT_TOKEN,
-    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    default=DefaultBotProperties(
+        parse_mode=ParseMode.HTML
+    )
 )
 
 dp = Dispatcher()
 
+# =========================
+# Handlers
+# =========================
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer("سلام 👋 ربات با Webhook اجرا شده است.")
+    await message.answer(
+        "سلام 👋\n"
+        "ربات با موفقیت اجرا شد."
+    )
 
+# =========================
+# Startup
+# =========================
 
 async def on_startup(bot: Bot):
-    render_url = os.getenv("RENDER_EXTERNAL_URL")
+    await bot.set_webhook(WEBHOOK_URL)
+    print("Webhook Set")
 
-    if render_url:
-        await bot.set_webhook(f"{render_url}{WEBHOOK_PATH}")
-        print("Webhook Set!")
-
+# =========================
+# Shutdown
+# =========================
 
 async def on_shutdown(bot: Bot):
     await bot.delete_webhook()
+    print("Webhook Deleted")
 
+# =========================
+# Main
+# =========================
 
 def main():
+
     dp.startup.register(on_startup)
     dp.shutdown.register(on_shutdown)
 
@@ -46,15 +75,18 @@ def main():
 
     SimpleRequestHandler(
         dispatcher=dp,
-        bot=bot
-    ).register(app, path=WEBHOOK_PATH)
+        bot=bot,
+    ).register(
+        app,
+        path=WEBHOOK_PATH,
+    )
 
     setup_application(app, dp, bot=bot)
 
     web.run_app(
         app,
-        host="0.0.0.0",
-        port=int(os.getenv("PORT", 10000))
+        host=HOST,
+        port=PORT,
     )
 
 
