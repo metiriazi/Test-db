@@ -48,7 +48,9 @@ dp = Dispatcher()
 main_keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="📚 جزوات"),
+            KeyboardButton(text="📚 جزوات")
+        ],
+        [    
             KeyboardButton(text="🎥 ویدیوها")
         ],
         [
