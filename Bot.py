@@ -76,8 +76,9 @@ async def start(message: Message):
 # =========================
 
 async def on_startup(bot: Bot):
+    await bot.delete_webhook()
     await bot.set_webhook(WEBHOOK_URL)
-    print("Webhook Set")
+    print("Webhook Updated")
 
 # =========================
 # Shutdown
