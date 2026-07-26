@@ -44,12 +44,27 @@ dp = Dispatcher()
 # Handlers
 # =========================
 
+
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
-        "سلام 👋\n"
-        "ربات با موفقیت اجرا شد."
+        "یکی از گزینه‌ها را انتخاب کنید:",
+        reply_markup=main_keyboard
     )
+
+
+main_keyboard = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="📚 جزوات"),
+            KeyboardButton(text="🎥 ویدیوها")
+        ],
+        [
+            KeyboardButton(text="ℹ️ درباره ما")
+        ]
+    ],
+    resize_keyboard=True
+)
 
 # =========================
 # Startup
